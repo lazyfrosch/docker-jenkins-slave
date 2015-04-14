@@ -1,8 +1,6 @@
-Docker Jenkins slave
-====================
+Docker Jenkins slave for Ruby
+=============================
 
-A container for running Jenkins slaves with the Docker Plugin.
+Based on the main Jenkins Slave container.
 
-See also https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
-
-Please see the branches of some flavors of this container.
+The container offers a RVM environment for Ruby builds, including bundler.
