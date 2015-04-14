@@ -1,7 +1,7 @@
 FROM lazyfrosch/ubuntu:trusty
 MAINTAINER Markus Frosch <markus.frosch@lazyfrosch.de>
 
-RUN apt-get install -y openjdk-6-jdk build-essential git openssh-server
+RUN apt-get update && apt-get install -y openjdk-6-jdk build-essential git openssh-server
 
 RUN \
   adduser --uid 9100 --ingroup nogroup --gecos "Jenkins Slave" --home /home/jenkins --disabled-password jenkins \
