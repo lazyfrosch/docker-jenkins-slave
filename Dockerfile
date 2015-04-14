@@ -11,7 +11,11 @@ RUN \
   && chown -R jenkins.nogroup /home/jenkins/.ssh \
   && chmod g=,o= -R /home/jenkins/.ssh
 
-RUN mkdir -p /var/run/sshd && sed -i 's/^.*\(loginuid\|motd\)/#\0/' /etc/pam.d/sshd
+# Note: rundir is required for security, and only created by initscript/unit
+#       also PAM won't allow us to connect in a Docker by default...
+RUN \
+  mkdir -p /var/run/sshd \
+  && sed -i 's/^.*\(loginuid\|motd\)/#\0/' /etc/pam.d/sshd
 
 EXPOSE 22
 
